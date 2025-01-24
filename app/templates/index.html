@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Cues</title>
+    <meta
+      name="description"
+      content="Legal-Advisor RAG"
+    />
+
+    <script>
+      window.OPEN_LEGAL_ADVISOR_CONST = {{ app_consts | safe }};
+    </script>
+
+    <link rel="stylesheet" href="/static/index.css" />
+
+    <script type="module" src="/static/components/ChatBubble.js"></script>
+    <link rel="stylesheet" href="/static/components/ChatBubble.css" />
+
+    <script type="module" src="/static/components/ChatFlow.js"></script>
+    <link rel="stylesheet" href="/static/components/ChatFlow.css" />
+
+    <script type="module" src="/static/components/ChatInput.js"></script>
+    <link rel="stylesheet" href="/static/components/ChatInput.css" />
+
+    <script type="module" src="/static/components/InspectDialog.js"></script>
+    <link rel="stylesheet" href="/static/components/InspectDialog.css" />
+
+    <script type="module" src="/static/components/SettingsDialog.js"></script>
+    <link rel="stylesheet" href="/static/components/SettingsDialog.css" />
+</head>
+
+<body>
+    <h1>Welcome to Law Cues</h1>
+    <main>
+      <div id="chat">
+        <chat-flow></chat-flow>
+        <chat-input></chat-input>
+      </div>
+
+      <footer>
+      </footer>
+    </main>
+
+    <settings-dialog></settings-dialog>
+    <inspect-dialog></inspect-dialog>
+</body>
+</html>

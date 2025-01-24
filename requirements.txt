@@ -1,0 +1,9 @@
+python-dotenv
+pandas
+llama-index
+ollama
+flask
+flask-cors
+werkzeug
+jinja2
+bs4
