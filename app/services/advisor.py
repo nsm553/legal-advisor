@@ -12,6 +12,7 @@ DEFAULT_TEMPERATURE = 0.0
 DEFAULT_MAX_TOKENS = 0
 
 # @current_app.route("/", methods=["GET"])
+ad.route("/", methods=["GET"])
 def home():
     return render_template("index.html")
 

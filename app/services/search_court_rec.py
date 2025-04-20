@@ -1,9 +1,9 @@
-import os
+import os, json
 import requests
 from typing import Dict, List, Optional
 from datetime import datetime
 import html2text
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from urllib.parse import urljoin
 @dataclass
 class CourtListenerConfig:
@@ -100,14 +100,14 @@ class SearchCourtRecord:
                     cluster_id=cluster_id,
                     combined_opinion=html2text.html2text(item['opinions'][0]['snippet'], "")
                 )
-                
+                # print(f"\n--{json.dumps(asdict(result))}")
                 # Fetch additional details
                 if cluster_id:
                     result.opinion_data = self._fetch_opinion_cluster(cluster_id)
 
-                result.docket_data = self._fetch_docket(result.docket_id)
-                                
-                results.append(result)
+                # result.docket_data = self._fetch_docket(result.docket_id)
+
+                results.append(asdict(result))
 
         except requests.RequestException as e:
             print(f"Error searching Court Listener: {str(e)}")

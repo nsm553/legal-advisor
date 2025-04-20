@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from flask import Flask, g
+from flask import Flask, g, current_app
 from markupsafe import Markup
 from flask_cors import CORS
 
@@ -23,11 +23,14 @@ def create_app():
         # from app.routes.search import sr as search_bp
 
         from app import routes
+        from app import views
         from app.services import ad
 
         app.register_blueprint(routes.bp)
         app.register_blueprint(routes.sr)
         app.register_blueprint(ad)
+        
+        current_app.route('/')
 
         g.DEFAULT_MODEL = "llama-3.2:latest"
         g.DEFAULT_URL = "http://localhost:11434"
